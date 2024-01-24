@@ -1,0 +1,118 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style type="text/css">
+        *{
+            text-decoration: none;
+            text-transform: capitalize;
+            box-sizing: border-box;
+        }
+        .site-header{
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #00004d;
+            border-radius: 5px;
+        }
+        .headnavspan{
+            text-align: center;
+            font-size: 35px;
+            margin-top: 15px;
+            margin-left: 20px;
+            color: #fff;
+        }
+        body{
+            
+            background-color: #002366;
+        }
+        .music{
+            margin-top: 5rem;
+        }
+        .quotes{
+            margin: 10px;
+            background-color: #1560BD;
+            border-radius: 8px;
+        }
+        .quotes h2{
+            padding: 20px;
+        }
+        #musicplayer{
+            background-color: #26619c;
+            border-radius: 8px;
+            margin: 10px;
+            text-align: center;
+
+        }
+        .predict{
+            background-color: #283392;
+            border-radius: 8px;
+            margin: 10px;
+            text-align: center;
+
+        }
+        .predict h2{
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            font-family: 'Courier New';
+        }
+        #musicplayer h2{
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+
+        }
+        #musicplayer audio{
+            width: 500px;
+            
+            
+        }
+        #musicplayer h3{
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-identity">
+            <h1><a href="{% url 'home' %}" class="logo"><span class="headnavspan">Music Player</span></a></h1>
+            <!--<a href="aboutus.html">About Us</a>-->
+        </div>
+        
+    </header>
+    <section class="music">
+        <div class="quotes">
+            <h2 style="color: white;">"Can a mere song change a people's minds? I doubt that it is so. But a song can infiltrate your heart and the heart may change your mind.” ― Elvis Costello</h2>
+        </div>
+        <div class="predict">
+            <h2>Hey Buddy!you are currently <u><span><i>{{emotion}}</i></span></u>!</h2>
+        </div>
+        
+        <div id="musicplayer">
+            
+            
+            <h2>Title: {{ song }}</h2>
+            <center><audio controls autoplay>
+                <source src="{% static 'audio/' %}{{song}}.mp3" type="audio/mpeg">
+              </audio></center>
+              
+          </div>
+    
+    </section>
+    
+</body>
+</html>
